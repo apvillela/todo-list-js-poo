@@ -1,0 +1,6 @@
+h1 {
+    filter: opacity(60%);
+    &:hover {
+        filter: brightness(1.75);
+    }
+}
