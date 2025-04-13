@@ -16,20 +16,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(form);
-
-  const titulo = data.get("titulo");
-  const descricao = data.get("descrição");
-  const dataSelecionada = data.get("data");
-  const hora = data.get("hora");
-  const prioridade = data.get("prioridade");
-
-  const tarefa = new Tarefa(
-    titulo,
-    descricao,
-    dataSelecionada,
-    hora,
-    prioridade,
-  );
+  const tarefa = new Tarefa(...data.values());
 
   lista.adicionarTarefa(tarefa);
   Lista.OcultarOverlayTarefa();
