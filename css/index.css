@@ -71,6 +71,16 @@ main {
     justify-content: center;
     border-radius: 10px;
     border: 2px solid var(--color8);
+
+    max-height: 600px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+#well-tarefa {
+    box-sizing: border-box;
+    padding-top: 260px;
 }
 
 .lista {
@@ -99,7 +109,7 @@ main {
 }
 
 .tarefa {
-    width: 550px;
+    width: 540px;
 }
 
 .add {
