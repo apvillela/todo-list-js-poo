@@ -10,7 +10,29 @@ import Tarefa from "./tarefa.js";
 })();
 
 const lista = new Lista("titulo daora");
-
 const form = document.getElementById("tarefa-form");
 
-console.log();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const data = new FormData(form);
+
+  const titulo = data.get("titulo");
+  const descricao = data.get("descrição");
+  const dataSelecionada = data.get("data");
+  const hora = data.get("hora");
+  const prioridade = data.get("prioridade");
+
+  const tarefa = new Tarefa(
+    titulo,
+    descricao,
+    dataSelecionada,
+    hora,
+    prioridade,
+  );
+
+  lista.adicionarTarefa(tarefa);
+  Lista.OcultarOverlayTarefa();
+});
+
+console.log(lista);

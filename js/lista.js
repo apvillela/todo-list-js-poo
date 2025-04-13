@@ -6,13 +6,12 @@ class Lista {
     this.#tarefas = [];
   }
 
-  get qtdTarefas() {
+  get tarefas() {
     return this.#tarefas;
   }
 
   adicionarTarefa(tarefa) {
     this.#tarefas.push(tarefa);
-    console.log(tarefa);
     tarefa.inserirTarefa();
   }
 
