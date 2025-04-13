@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link href="./css/palette.css" rel="stylesheet" />
     <link href="./css/index.css" rel="stylesheet" />
+    <link href="./css/modal.css" rel="stylesheet" />
     <script type="module" src="./js/index.js"></script>
   </head>
   <body>
@@ -63,6 +64,41 @@
         </div>
       </div>
     </main>
+
     <footer></footer>
+
+    <div class="overlay">
+      <form class="modal-form">
+        <label>
+          Título:
+          <input type="text" name="titulo" required />
+        </label>
+
+        <label>
+          Descrição:
+          <textarea name="descrição" required></textarea>
+        </label>
+
+        <label>
+          Data:
+          <input type="date" name="data" lang="pt-BR" required />
+        </label>
+
+        <label>
+          Horário:
+          <input type="time" name="hora" required />
+        </label>
+
+        <label>
+          Prioridade:
+          <select name="prioridade" required>
+            <option value="normal">Normal</option>
+            <option value="importante">Importante</option>
+          </select>
+        </label>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
   </body>
 </html>
