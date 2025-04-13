@@ -27,23 +27,30 @@ h1 {
 main {
     width: 1000px;
     margin: 0 auto;
+
+    display: flex;
+    gap: 100px;
 }
 
 .esquerda {
     max-width: 280px;
+}
 
-    .topo {
-        display: flex;
-        margin: 20px 0;
+.direita {
+    max-width: 620px;
+}
 
-        h2 {
-            margin: auto 0;
-        }
+.topo {
+    display: flex;
+    margin: 20px 0;
 
-        button {
-            margin: auto 0 0 auto;
-            max-height: 20px;
-        }
+    h2 {
+        margin: auto 0;
+    }
+
+    button {
+        margin: auto 0 0 auto;
+        max-height: 20px;
     }
 }
 
@@ -75,6 +82,10 @@ main {
     p:nth-last-child(1) {
         align-self: flex-end;
     }
+}
+
+.nota {
+    width: 550px;
 }
 
 .add {
