@@ -59,10 +59,19 @@
         cursor: pointer;
         filter: brightness(90%);
 
+        flex: 1;
+
         &:hover {
             filter: brightness(100%);
         }
     }
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 /* utils */

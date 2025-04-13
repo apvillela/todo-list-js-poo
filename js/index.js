@@ -1,8 +1,16 @@
+import Lista from "./lista.js";
 import Tarefa from "./tarefa.js";
 
-let tarefa = new Tarefa("titulo", "descricao daora", "2025-04-03", "13:34", 0);
-let tarefa2 = new Tarefa("titulo", "descricao daora", "2025-04-03", "13:34", 0);
-let tarefa3 = new Tarefa("titulo", "descricao daora", "2025-04-03", "13:34", 0);
-let tarefa4 = new Tarefa("titulo", "descricao daora", "2025-04-03", "13:34", 0);
+(() => {
+  const cancelarModal = document.getElementById("cancelar-tarefa");
+  cancelarModal.addEventListener("click", () => Lista.OcultarOverlayTarefa());
 
-console.log(tarefa4.inserirTarefa());
+  const addModal = document.getElementById("add-tarefa");
+  addModal.addEventListener("click", () => Lista.MostrarOverlayTarefa());
+})();
+
+const lista = new Lista("titulo daora");
+
+const form = document.getElementById("tarefa-form");
+
+console.log();
