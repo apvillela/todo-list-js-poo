@@ -1,4 +1,21 @@
+body,
+html {
+    margin: 0;
+    border: 0;
+}
+
+header {
+    background-color: var(--background);
+    filter: opacity(70%);
+}
+
+a {
+    color: var(--foreground);
+    text-decoration: none;
+}
+
 h1 {
+    margin: 0;
     filter: opacity(60%);
     &:hover {
         filter: brightness(1.75);
