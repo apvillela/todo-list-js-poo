@@ -70,7 +70,7 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 2px solid var(--color6);
+    border: 2px solid var(--color8);
 }
 
 .lista {
@@ -90,6 +90,12 @@ main {
     p:nth-last-child(1) {
         align-self: flex-end;
     }
+
+    filter: opacity(90%);
+
+    &:hover {
+        filter: opacity(100%);
+    }
 }
 
 .nota {
@@ -97,7 +103,7 @@ main {
 }
 
 .add {
-    background-color: var(--color5);
+    background-color: var(--color15);
     border: 0;
     padding: 15px 11px;
     border-radius: 100%;
