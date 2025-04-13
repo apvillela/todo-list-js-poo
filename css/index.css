@@ -2,7 +2,7 @@ body,
 html {
     margin: 0;
     border: 0;
-    background-color: var(--background);
+    background-color: var(--color0);
     color: var(--foreground);
 }
 
