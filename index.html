@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link href="./css/palette.css" rel="stylesheet" />
     <link href="./css/index.css" rel="stylesheet" />
+    <link href="./css/modal.css" rel="stylesheet" />
     <script type="module" src="./js/index.js"></script>
   </head>
   <body>
@@ -43,7 +44,7 @@
       <div class="direita">
         <div class="topo">
           <h2>Notas</h2>
-          <button id="add-lista" class="add">+</button>
+          <button id="add-tarefa" class="add">+</button>
         </div>
         <div class="baixo">
           <div class="well" id="well-tarefa">
@@ -63,6 +64,44 @@
         </div>
       </div>
     </main>
+
     <footer></footer>
+
+    <div class="overlay hidden" id="overlay-tarefa">
+      <form class="modal-form" id="tarefa-form">
+        <label>
+          Título:
+          <input type="text" name="titulo" required />
+        </label>
+
+        <label>
+          Descrição:
+          <textarea name="descrição" required></textarea>
+        </label>
+
+        <label>
+          Data:
+          <input type="date" name="data" lang="pt-BR" required />
+        </label>
+
+        <label>
+          Horário:
+          <input type="time" name="hora" required />
+        </label>
+
+        <label>
+          Prioridade:
+          <select name="prioridade" required>
+            <option value="normal">Normal</option>
+            <option value="importante">Importante</option>
+          </select>
+        </label>
+
+        <div class="botoes">
+          <button type="button" id="cancelar-tarefa">Cancelar</button>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
