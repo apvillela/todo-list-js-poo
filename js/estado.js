@@ -61,6 +61,8 @@ class Estado {
 
       this.listaAtualDOM.classList.add("selecionado");
     }
+
+    this.renderTarefas();
   }
 
   renderTarefas() {
