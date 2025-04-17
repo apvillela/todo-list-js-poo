@@ -32,7 +32,7 @@ class Estado {
         this.listaAtual = lista;
         this.listaAtualDOM = listaDiv;
 
-        renderTarefas();
+        this.renderTarefas();
       };
 
       const tituloP = document.createElement("p");
