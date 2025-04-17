@@ -1,13 +1,13 @@
 /* utils */
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .darken {
-    filter: opacity(40%);
+  filter: opacity(40%);
 }
 
 .selecionado {
-    filter: brightness(150%);
+  filter: brightness(150%);
 }
