@@ -79,11 +79,25 @@ class Estado {
   addTarefaToListaAtual(tarefa) {
     this.listaAtual.adicionarTarefa(tarefa);
     localStorage.setItem("listas", JSON.stringify(this.listas));
+    this.renderTarefas();
   }
 
   addNewListaToListas(lista) {
     this.listas.push(lista);
     localStorage.setItem("listas", JSON.stringify(this.listas));
+    this.renderListas();
+  }
+
+  criarLista(titulo) {
+    const nomeJaExiste = this.listas.some((lista) => lista.titulo === titulo);
+
+    if (nomeJaExiste) {
+      alert("Uma lista com esse nome já existe!");
+      return;
+    }
+
+    const nova = new Lista(titulo);
+    return nova;
   }
 }
 

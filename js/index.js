@@ -30,7 +30,6 @@ formF.addEventListener("submit", (event) => {
   const tarefa = new Tarefa(...data.values());
 
   estado.addTarefaToListaAtual(tarefa);
-  estado.renderTarefas();
   Lista.OcultarOverlayTarefa();
   document.getElementById("tarefa-form").reset();
 });
@@ -40,12 +39,14 @@ formL.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(formL);
-  const lista = new Lista(...data.values());
 
-  estado.addNewListaToListas(lista);
-  estado.renderListas();
-  Lista.OcultarOverlayLista();
-  document.getElementById("form-nova-lista").reset();
+  const lista = estado.criarLista(...data.values());
+  if (lista != null) {
+    estado.addNewListaToListas(lista);
+
+    Lista.OcultarOverlayLista();
+    document.getElementById("form-nova-lista").reset();
+  }
 });
 
 estado.renderListas();
