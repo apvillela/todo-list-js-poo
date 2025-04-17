@@ -1,3 +1,5 @@
+import Tarefa from "./tarefa.js";
+
 class Lista {
   #tarefas;
 
@@ -13,6 +15,13 @@ class Lista {
   adicionarTarefa(tarefa) {
     this.#tarefas.push(tarefa);
     tarefa.inserirTarefa();
+  }
+
+  toJSON() {
+    return {
+      titulo: this.titulo,
+      tarefas: this.#tarefas,
+    };
   }
 
   static MostrarOverlayTarefa() {
@@ -45,6 +54,16 @@ class Lista {
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.add("hidden");
+  }
+
+  static fromJSON(obj) {
+    const lista = new Lista(obj.titulo);
+    obj.tarefas.forEach((t) => lista.adicionarTarefa(Tarefa.fromJSON(t)));
+    return lista;
+  }
+
+  static formatarIdTitulo(string) {
+    return string.replace(/\s+/g, "_").toLowerCase();
   }
 }
 

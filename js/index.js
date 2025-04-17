@@ -2,6 +2,8 @@ import Estado from "./estado.js";
 import Lista from "./lista.js";
 import Tarefa from "./tarefa.js";
 
+const estado = new Estado();
+
 (() => {
   const cancelarModalTarefa = document.getElementById("cancelar-tarefa");
   cancelarModalTarefa.addEventListener("click", () =>
@@ -20,8 +22,6 @@ import Tarefa from "./tarefa.js";
   addModalLista.addEventListener("click", () => Lista.MostrarOverlayLista());
 })();
 
-const estado = new Estado();
-
 const formF = document.getElementById("tarefa-form");
 formF.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -29,7 +29,7 @@ formF.addEventListener("submit", (event) => {
   const data = new FormData(formF);
   const tarefa = new Tarefa(...data.values());
 
-  estado.listaAtual.adicionarTarefa(tarefa);
+  estado.addTarefaToListaAtual(tarefa);
   estado.renderTarefas();
   Lista.OcultarOverlayTarefa();
 });
@@ -41,7 +41,7 @@ formL.addEventListener("submit", (event) => {
   const data = new FormData(formL);
   const lista = new Lista(...data.values());
 
-  estado.listas.push(lista);
+  estado.addNewListaToListas(lista);
   estado.renderListas();
 });
 

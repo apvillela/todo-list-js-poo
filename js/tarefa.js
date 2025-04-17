@@ -19,18 +19,6 @@ class Tarefa {
     return this.#id;
   }
 
-  toJSON() {
-    return {
-      id: this.id,
-      titulo: this.titulo,
-      desc: this.desc,
-      data: this.data,
-      hora: this.hora,
-      prio: this.prio,
-      concluida: this.concluida,
-    };
-  }
-
   concluirTarefa() {
     this.concluida = true;
   }
@@ -59,6 +47,10 @@ class Tarefa {
     tarefa.classList.add("lista", "tarefa");
 
     well.append(tarefa);
+  }
+
+  static fromJSON(obj) {
+    return new Tarefa(obj.titulo, obj.desc, obj.data, obj.hora, obj.prio);
   }
 }
 
