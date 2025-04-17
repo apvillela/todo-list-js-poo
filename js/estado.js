@@ -55,9 +55,11 @@ class Estado {
       this.listas.length > 0
     ) {
       this.listaAtual = this.listas[0];
-      document
-        .getElementById(Lista.formatarIdTitulo(this.listaAtual.titulo))
-        .classList.add("selecionado");
+      this.listaAtualDOM = document.getElementById(
+        Lista.formatarIdTitulo(this.listaAtual.titulo),
+      );
+
+      this.listaAtualDOM.classList.add("selecionado");
     }
   }
 
