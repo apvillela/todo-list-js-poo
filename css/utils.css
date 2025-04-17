@@ -1,0 +1,9 @@
+/* utils */
+
+.hidden {
+    display: none;
+}
+
+.darken {
+    filter: opacity(40%);
+}

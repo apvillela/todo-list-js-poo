@@ -1,3 +1,4 @@
+import Estado from "./estado.js";
 import Lista from "./lista.js";
 import Tarefa from "./tarefa.js";
 
@@ -22,4 +23,8 @@ form.addEventListener("submit", (event) => {
   Lista.OcultarOverlayTarefa();
 });
 
-console.log(lista);
+const listas = [lista];
+
+const estado = new Estado(listas);
+
+estado.renderListas();
