@@ -78,9 +78,10 @@ main {
   overflow-x: hidden;
 }
 
-#well-tarefa {
+#well-tarefa,
+#well-lista {
   box-sizing: border-box;
-  padding-top: 40px;
+  padding-top: 300px;
 }
 
 .lista {
