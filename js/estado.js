@@ -2,6 +2,7 @@ class Estado {
   constructor(listas) {
     this.listas = listas || [];
     this.listaAtual = null;
+    this.listaAtualDOM = null;
   }
 
   renderListas() {
@@ -13,7 +14,15 @@ class Estado {
       const listaDiv = document.createElement("div");
       listaDiv.className = "lista";
       listaDiv.onclick = () => {
+        if (this.listaAtualDOM) {
+          this.listaAtualDOM.classList.remove("selecionado");
+        }
+
+        listaDiv.classList.add("selecionado");
+
         this.listaAtual = lista;
+        this.listaAtualDOM = listaDiv;
+
         renderTarefas();
       };
 

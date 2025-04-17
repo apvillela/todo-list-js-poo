@@ -7,3 +7,7 @@
 .darken {
     filter: opacity(40%);
 }
+
+.selecionado {
+    filter: brightness(150%);
+}

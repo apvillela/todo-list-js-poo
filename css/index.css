@@ -104,7 +104,7 @@ main {
   filter: opacity(90%);
 
   &:hover {
-    filter: opacity(100%);
+    filter: brightness(130%);
   }
 }
 

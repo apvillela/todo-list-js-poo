@@ -20,24 +20,21 @@ import Tarefa from "./tarefa.js";
   addModalLista.addEventListener("click", () => Lista.MostrarOverlayLista());
 })();
 
-const lista = new Lista("titulo daora");
-const listas = [lista];
-const estado = new Estado(listas);
+const estado = new Estado();
 
 const formF = document.getElementById("tarefa-form");
-
 formF.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(formF);
   const tarefa = new Tarefa(...data.values());
 
-  lista.adicionarTarefa(tarefa);
+  estado.listaAtual.adicionarTarefa(tarefa);
+  estado.renderTarefas();
   Lista.OcultarOverlayTarefa();
 });
 
 const formL = document.getElementById("form-nova-lista");
-
 formL.addEventListener("submit", (event) => {
   event.preventDefault();
 
