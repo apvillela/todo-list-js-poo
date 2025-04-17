@@ -18,11 +18,33 @@ class Lista {
   static MostrarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
     overlay.classList.remove("hidden");
+
+    const tarefaF = document.getElementById("tarefa-form");
+    tarefaF.classList.remove("hidden");
   }
 
   static OcultarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
     overlay.classList.add("hidden");
+
+    const tarefaF = document.getElementById("tarefa-form");
+    tarefaF.classList.add("hidden");
+  }
+
+  static MostrarOverlayLista() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.remove("hidden");
+
+    const listaF = document.getElementById("form-nova-lista");
+    listaF.classList.remove("hidden");
+  }
+
+  static OcultarOverlayLista() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.add("hidden");
+
+    const listaF = document.getElementById("form-nova-lista");
+    listaF.classList.add("hidden");
   }
 }
 
