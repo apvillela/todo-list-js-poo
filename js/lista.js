@@ -1,3 +1,5 @@
+import Tarefa from "./tarefa.js";
+
 class Lista {
   #tarefas;
 
@@ -15,14 +17,53 @@ class Lista {
     tarefa.inserirTarefa();
   }
 
+  toJSON() {
+    return {
+      titulo: this.titulo,
+      tarefas: this.#tarefas,
+    };
+  }
+
   static MostrarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
     overlay.classList.remove("hidden");
+
+    const tarefaF = document.getElementById("tarefa-form");
+    tarefaF.classList.remove("hidden");
   }
 
   static OcultarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
     overlay.classList.add("hidden");
+
+    const tarefaF = document.getElementById("tarefa-form");
+    tarefaF.classList.add("hidden");
+  }
+
+  static MostrarOverlayLista() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.remove("hidden");
+
+    const listaF = document.getElementById("form-nova-lista");
+    listaF.classList.remove("hidden");
+  }
+
+  static OcultarOverlayLista() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.add("hidden");
+
+    const listaF = document.getElementById("form-nova-lista");
+    listaF.classList.add("hidden");
+  }
+
+  static fromJSON(obj) {
+    const lista = new Lista(obj.titulo);
+    obj.tarefas.forEach((t) => lista.adicionarTarefa(Tarefa.fromJSON(t)));
+    return lista;
+  }
+
+  static formatarIdTitulo(string) {
+    return string.replace(/\s+/g, "_").toLowerCase();
   }
 }
 
