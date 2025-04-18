@@ -14,7 +14,6 @@ class Lista {
 
   adicionarTarefa(tarefa) {
     this.#tarefas.push(tarefa);
-    tarefa.inserirTarefa();
   }
 
   toJSON() {
@@ -54,6 +53,22 @@ class Lista {
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.add("hidden");
+  }
+
+  static OcultarOverlayEditTarefa() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.add("hidden");
+
+    const tarefaF = document.getElementById("tarefa-edit-form");
+    tarefaF.classList.add("hidden");
+  }
+
+  static MostrarOverlayEditTarefa() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.remove("hidden");
+
+    const tarefaF = document.getElementById("tarefa-edit-form");
+    tarefaF.classList.remove("hidden");
   }
 
   static fromJSON(obj) {

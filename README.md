@@ -3,17 +3,21 @@
 # Gerenciador de Tarefas - To Do List
 
 ## Descrição
+
 Este projeto é um aplicativo de gerenciamento de tarefas e listas. O famoso to-do list. Ele permite que os usuários criem listas personalizadas, adicionem tarefas de forma detalhadas (como título, descrição, data, hora e prioridade) e organizem suas atividades de forma eficiente. As listas e tarefas são salvas localmente no navegador utilizando o **localStorage**.
 
 ## Equipe
+
 - **Alexandre Pereira Villela**
 - **Leonardo Diettrich de Martini**
 - **Lucas Barbieri Catarina**
 
 ## Paradigma de Programação
+
 O projeto segue o paradigma de **Programação Orientada a Objetos**, utilizando classes para modelar as entidades principais, como **Tarefa**, **Lista** e **Estado**. A interação com o DOM e o gerenciamento de estado são realizados de forma modular e organizada.
 
 ## Exemplos de Conceitos na Prática
+
 <!-- TODO Encontrar pelo menos cinco conceitos do paradigma POO estudados em sala devem ser identificados tais como: Polimorfismo, Objetos
 Classes e subclasses
 Classes abstratas

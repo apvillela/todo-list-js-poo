@@ -8,7 +8,14 @@ class Estado {
     if (listas) {
       this.listas = JSON.parse(listas).map(Lista.fromJSON);
     } else {
-      this.listas = [];
+      fetch("/json/listas.json")
+        .then((res) => res.json())
+        .then((dados) => {
+          localStorage.setItem("listas", JSON.stringify(dados));
+
+          // n consigo dar bind this.listas assincrono, ent reload e deixa o primeiro branch do if funcionar
+          location.reload();
+        });
     }
 
     this.listaAtual = null;
@@ -112,16 +119,30 @@ class Estado {
     console.log(nova);
     return nova;
   }
+
+  atualizarTarefa(id, titulo, desc, data, hora, prio, concluida) {
+    const tarefa = this.listaAtual.tarefas.find((t) => t.id == id);
+
+    tarefa.titulo = titulo;
+    tarefa.desc = desc;
+    tarefa.data = data;
+    tarefa.hora = hora;
+    tarefa.prio = prio;
+    tarefa.concluida = concluida;
+
+    localStorage.setItem("listas", JSON.stringify(this.listas));
+    this.renderTarefas();
+  }
+
+  static formatarDataBrasileira(data) {
+    const [ano, mes, dia] = data.split("-");
+    return `${dia}/${mes}/${ano}`;
+  }
+
+  static formatarHoraBrasileira(_hora) {
+    const [hora, minuto] = _hora.split(":");
+    return `${hora.padStart(2, "0")}:${minuto.padStart(2, "0")}`;
+  }
 }
 
 export default Estado;
-
-function formatarDataBrasileira(data) {
-  const [ano, mes, dia] = data.split("-");
-  return `${dia}/${mes}/${ano}`;
-}
-
-function formatarHoraBrasileira(_hora) {
-  const [hora, minuto] = _hora.split(":");
-  return `${hora.padStart(2, "0")}:${minuto.padStart(2, "0")}`;
-}

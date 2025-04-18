@@ -1,3 +1,5 @@
+import Lista from "./lista.js";
+
 class Tarefa {
   static ultimoId = 0;
 
@@ -35,6 +37,25 @@ class Tarefa {
     const well = document.getElementById("well-tarefa");
 
     const tarefa = document.createElement("div");
+
+    tarefa.onclick = () => {
+      Lista.MostrarOverlayEditTarefa();
+
+      const form = document.getElementById("tarefa-edit-form");
+
+      form.titulo.value = this.titulo;
+      form.descrição.value = this.desc;
+
+      const [dia, mes, ano] = this.data.split("/");
+      form.data.value = `${ano}-${mes}-${dia}`;
+
+      form.hora.value = this.hora;
+      form.prioridade.value = this.prio;
+      form.concluida.checked = this.concluida;
+
+      form.dataset.tarefaID = this.#id;
+    };
+
     const titulo = document.createElement("p");
     titulo.innerText = this.titulo;
 

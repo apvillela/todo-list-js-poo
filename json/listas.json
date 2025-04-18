@@ -1,0 +1,107 @@
+[
+  {
+    "titulo": "Casa",
+    "tarefas": [
+      {
+        "titulo": "Lavar a louça",
+        "desc": "Não esquecer de limpar o fogão também.",
+        "data": "19/04/2025",
+        "hora": "18:00",
+        "prio": "normal",
+        "concluida": false
+      },
+      {
+        "titulo": "Passar roupa",
+        "desc": "Uniformes da semana",
+        "data": "20/04/2025",
+        "hora": "15:30",
+        "prio": "importante",
+        "concluida": false
+      }
+    ]
+  },
+  {
+    "titulo": "Trabalho",
+    "tarefas": [
+      {
+        "titulo": "Enviar relatório semanal",
+        "desc": "Relatório de desempenho até sexta-feira",
+        "data": "22/04/2025",
+        "hora": "09:00",
+        "prio": "importante",
+        "concluida": false
+      },
+      {
+        "titulo": "Reunião com equipe",
+        "desc": "Discutir o roadmap do próximo sprint",
+        "data": "23/04/2025",
+        "hora": "14:00",
+        "prio": "normal",
+        "concluida": false
+      }
+    ]
+  },
+  {
+    "titulo": "Viagem",
+    "tarefas": [
+      {
+        "titulo": "Comprar passagens",
+        "desc": "Procurar promoções no site da companhia aérea",
+        "data": "25/04/2025",
+        "hora": "10:00",
+        "prio": "importante",
+        "concluida": false
+      },
+      {
+        "titulo": "Reservar hotel",
+        "desc": "Preferência por hotel com café da manhã",
+        "data": "26/04/2025",
+        "hora": "12:00",
+        "prio": "normal",
+        "concluida": false
+      }
+    ]
+  },
+  {
+    "titulo": "Estudos",
+    "tarefas": [
+      {
+        "titulo": "Revisar JavaScript",
+        "desc": "Revisar funções, objetos e eventos DOM",
+        "data": "21/04/2025",
+        "hora": "20:00",
+        "prio": "normal",
+        "concluida": false
+      },
+      {
+        "titulo": "Fazer exercícios de lógica",
+        "desc": "Resolver desafios no HackerRank",
+        "data": "22/04/2025",
+        "hora": "21:00",
+        "prio": "normal",
+        "concluida": false
+      }
+    ]
+  },
+  {
+    "titulo": "Saúde",
+    "tarefas": [
+      {
+        "titulo": "Consulta com dentista",
+        "desc": "Clínica do Dr. José, às 16h",
+        "data": "24/04/2025",
+        "hora": "16:00",
+        "prio": "importante",
+        "concluida": false
+      },
+      {
+        "titulo": "Exame de sangue",
+        "desc": "Jejum de 12 horas",
+        "data": "25/04/2025",
+        "hora": "08:00",
+        "prio": "normal",
+        "concluida": false
+      }
+    ]
+  }
+]
