@@ -1,4 +1,5 @@
 import Lista from "./lista.js";
+import Tarefa from "./tarefa.js";
 
 class Estado {
   constructor() {
@@ -99,6 +100,28 @@ class Estado {
     const nova = new Lista(titulo);
     return nova;
   }
+
+  criarTarefa(_titulo, _desc, _data, _hora, _prio) {
+    let titulo = _titulo;
+    let desc = _desc;
+    let data = formatarDataBrasileira(_data);
+    let hora = formatarHoraBrasileira(_hora);
+    let prio = _prio;
+
+    const nova = new Tarefa(titulo, desc, data, hora, prio);
+    console.log(nova);
+    return nova;
+  }
 }
 
 export default Estado;
+
+function formatarDataBrasileira(data) {
+  const [ano, mes, dia] = data.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
+
+function formatarHoraBrasileira(_hora) {
+  const [hora, minuto] = _hora.split(":");
+  return `${hora.padStart(2, "0")}:${minuto.padStart(2, "0")}`;
+}
