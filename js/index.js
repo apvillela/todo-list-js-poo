@@ -29,8 +29,7 @@ const estado = new Estado();
   );
 })();
 
-const formF = document.getElementById("tarefa-form");
-formF.addEventListener("submit", (event) => {
+document.getElementById("tarefa-form").addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(formF);
@@ -38,23 +37,55 @@ formF.addEventListener("submit", (event) => {
   if (tarefa != null) {
     estado.addTarefaToListaAtual(tarefa);
     Lista.OcultarOverlayTarefa();
-    document.getElementById("tarefa-form").reset();
+    event.target.reset();
   }
 });
 
-const formL = document.getElementById("form-nova-lista");
-formL.addEventListener("submit", (event) => {
-  event.preventDefault();
+document
+  .getElementById("form-nova-lista")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const data = new FormData(formL);
+    const data = new FormData(formL);
 
-  const lista = estado.criarLista(...data.values());
-  if (lista != null) {
-    estado.addNewListaToListas(lista);
+    const lista = estado.criarLista(...data.values());
+    if (lista != null) {
+      estado.addNewListaToListas(lista);
 
-    Lista.OcultarOverlayLista();
-    document.getElementById("form-nova-lista").reset();
-  }
-});
+      Lista.OcultarOverlayLista();
+      event.target.reset();
+    }
+  });
+
+document
+  .getElementById("tarefa-edit-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const form = event.target;
+
+    const titulo = form.titulo.value;
+    const desc = form.descrição.value;
+    const data = Estado.formatarDataBrasileira(form.data.value);
+    const hora = Estado.formatarHoraBrasileira(form.hora.value);
+    const prio = form.prioridade.value;
+    const concluida = form.concluida.checked;
+
+    const idTarefa = form.dataset.tarefaID;
+
+    if (idTarefa) {
+      estado.atualizarTarefa(
+        idTarefa,
+        titulo,
+        desc,
+        data,
+        hora,
+        prio,
+        concluida,
+      );
+    }
+
+    form.reset();
+    Lista.OcultarOverlayEditTarefa();
+  });
 
 estado.renderListas();
