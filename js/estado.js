@@ -8,7 +8,14 @@ class Estado {
     if (listas) {
       this.listas = JSON.parse(listas).map(Lista.fromJSON);
     } else {
-      this.listas = [];
+      fetch("/json/listas.json")
+        .then((res) => res.json())
+        .then((dados) => {
+          localStorage.setItem("listas", JSON.stringify(dados));
+
+          // n consigo dar bind this.listas assincrono, ent reload e deixa o primeiro branch do if funcionar
+          location.reload();
+        });
     }
 
     this.listaAtual = null;
