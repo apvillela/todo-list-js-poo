@@ -81,6 +81,7 @@
           <button type="submit">Enviar</button>
         </div>
       </form>
+
       <form id="form-nova-lista" class="modal-form hidden">
         <h2>Criar Nova Lista</h2>
         <input
@@ -93,6 +94,52 @@
         <div class="botoes">
           <button type="submit">Criar</button>
           <button type="button" id="cancelar-lista">Cancelar</button>
+        </div>
+      </form>
+
+      <form class="modal-form hidden" id="tarefa-edit-form">
+        <label>
+          Título:
+          <input type="text" name="titulo" required />
+        </label>
+
+        <label>
+          Descrição:
+          <textarea name="descrição" required></textarea>
+        </label>
+
+        <label>
+          Data:
+          <input type="date" name="data" lang="pt-BR" required />
+        </label>
+
+        <label>
+          Horário:
+          <input type="time" name="hora" required />
+        </label>
+
+        <div
+          class="options"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <label>
+            Prioridade:
+            <select name="prioridade" required>
+              <option value="normal">Normal</option>
+              <option value="importante">Importante</option>
+            </select>
+          </label>
+
+          <label> Concluída: <input type="checkbox" name="concluida" /> </label>
+        </div>
+
+        <div class="botoes">
+          <button type="button" id="cancelar-edit-tarefa">Cancelar</button>
+          <button type="submit">Enviar</button>
         </div>
       </form>
     </div>

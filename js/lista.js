@@ -56,6 +56,22 @@ class Lista {
     listaF.classList.add("hidden");
   }
 
+  static OcultarOverlayEditTarefa() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.add("hidden");
+
+    const tarefaF = document.getElementById("tarefa-edit-form");
+    tarefaF.classList.add("hidden");
+  }
+
+  static MostrarOverlayEditTarefa() {
+    const overlay = document.getElementById("overlay-tarefa");
+    overlay.classList.remove("hidden");
+
+    const tarefaF = document.getElementById("tarefa-edit-form");
+    tarefaF.classList.remove("hidden");
+  }
+
   static fromJSON(obj) {
     const lista = new Lista(obj.titulo);
     obj.tarefas.forEach((t) => lista.adicionarTarefa(Tarefa.fromJSON(t)));

@@ -1,3 +1,5 @@
+import Lista from "./lista.js";
+
 class Tarefa {
   static ultimoId = 0;
 
@@ -35,6 +37,11 @@ class Tarefa {
     const well = document.getElementById("well-tarefa");
 
     const tarefa = document.createElement("div");
+
+    tarefa.onclick = () => {
+      Lista.MostrarOverlayEditTarefa();
+    };
+
     const titulo = document.createElement("p");
     titulo.innerText = this.titulo;
 

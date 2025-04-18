@@ -20,6 +20,13 @@ const estado = new Estado();
 
   const addModalLista = document.getElementById("add-lista");
   addModalLista.addEventListener("click", () => Lista.MostrarOverlayLista());
+
+  const cancelarModalEditTarefa = document.getElementById(
+    "cancelar-edit-tarefa",
+  );
+  cancelarModalEditTarefa.addEventListener("click", () =>
+    Lista.OcultarOverlayEditTarefa(),
+  );
 })();
 
 const formF = document.getElementById("tarefa-form");
