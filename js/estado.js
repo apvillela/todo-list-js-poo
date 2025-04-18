@@ -123,6 +123,7 @@ class Estado {
     tarefa.prio = prio;
     tarefa.concluida = concluida;
 
+    localStorage.setItem("listas", JSON.stringify(this.listas));
     this.renderTarefas();
   }
 

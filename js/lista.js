@@ -14,7 +14,6 @@ class Lista {
 
   adicionarTarefa(tarefa) {
     this.#tarefas.push(tarefa);
-    tarefa.inserirTarefa();
   }
 
   toJSON() {
