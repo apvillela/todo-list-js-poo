@@ -27,11 +27,12 @@ formF.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(formF);
-  const tarefa = new Tarefa(...data.values());
-
-  estado.addTarefaToListaAtual(tarefa);
-  Lista.OcultarOverlayTarefa();
-  document.getElementById("tarefa-form").reset();
+  const tarefa = estado.criarTarefa(...data.values());
+  if (tarefa != null) {
+    estado.addTarefaToListaAtual(tarefa);
+    Lista.OcultarOverlayTarefa();
+    document.getElementById("tarefa-form").reset();
+  }
 });
 
 const formL = document.getElementById("form-nova-lista");
