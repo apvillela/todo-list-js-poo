@@ -3,6 +3,7 @@ import Tarefa from "./tarefa.js";
 
 class Estado {
   ordem = null;
+  exibir = null;
 
   constructor() {
     const listas = localStorage.getItem("listas");
@@ -23,6 +24,11 @@ class Estado {
     this.ordem = document.querySelector(
       "select#filtro-tarefa"
     ).options[0].value;
+
+    this.exibir = document.querySelector(
+      "select#exibir-tarefa"
+    ).options[0].value;
+
     this.listaAtual = null;
     this.listaAtualDOM = null;
   }
@@ -33,6 +39,14 @@ class Estado {
 
   getOrdem() {
     return this.ordem;
+  }
+
+  setExibir(exibir) {
+    this.exibir = exibir;
+  }
+
+  getExibir() {
+    return this.exibir;
   }
 
   renderListas() {
@@ -94,7 +108,18 @@ class Estado {
 
     this.listaAtual.ordenarTarefas(this.ordem);
 
-    this.listaAtual.tarefas.forEach((tarefa) => {
+    let tarefasFiltradas;
+    if (this.exibir === "todas") {
+      tarefasFiltradas = this.listaAtual.tarefas;
+    } else if (this.exibir === "pendentes") {
+      tarefasFiltradas = this.listaAtual.tarefas.filter((t) => !t.concluida);
+    } else if (this.exibir === "concluidas") {
+      tarefasFiltradas = this.listaAtual.tarefas.filter((t) => t.concluida);
+    } else {
+      tarefasFiltradas = [];
+    }
+
+    tarefasFiltradas.forEach((tarefa) => {
       tarefa.inserirTarefa();
     });
   }
