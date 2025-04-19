@@ -26,6 +26,11 @@ class Lista {
       this.#tarefas.sort((a, b) => {
         return parseBRDate(a.data) - parseBRDate(b.data);
       });
+    } else if (ordem === "prioridade") {
+      const prioridadeMap = { importante: 1, normal: 2 };
+      this.#tarefas.sort((a, b) => {
+        return prioridadeMap[a.prio] - prioridadeMap[b.prio];
+      });
     }
   }
 
