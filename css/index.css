@@ -136,9 +136,36 @@ main {
 .ordenar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--foreground);
+  }
 
   select {
-    max-height: 20px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color3);
+    color: var(--foreground);
+    font-size: 14px;
+
+    filter: opacity(80%);
   }
+}
+
+#pesquisa-tarefa {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--color3);
+  color: var(--foreground);
+  width: 180px;
+  font-size: 14px;
 }
