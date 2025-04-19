@@ -16,6 +16,38 @@ class Lista {
     this.#tarefas.push(tarefa);
   }
 
+  ordenarTarefas(ordem) {
+    function parseBRDate(dataStr, horaStr) {
+      const [dia, mes, ano] = dataStr.split("/").map(Number);
+      const [hora, minuto] = horaStr.split(":").map(Number);
+
+      return new Date(ano, mes - 1, dia, hora, minuto).getTime();
+    }
+
+    if (ordem === "data") {
+      this.#tarefas.sort((a, b) => {
+        return parseBRDate(a.data, a.hora) - parseBRDate(b.data, a.hora);
+      });
+    } else if (ordem === "titulo") {
+      this.#tarefas.sort((a, b) => {
+        return a.titulo.localeCompare(b.titulo);
+      });
+    } else if (ordem === "desc") {
+      this.#tarefas.sort((a, b) => {
+        return b.titulo.localeCompare(a.titulo);
+      });
+    } else if (ordem === "prioridade") {
+      const prioridadeMap = { importante: 1, normal: 2 };
+      this.#tarefas.sort((a, b) => {
+        return prioridadeMap[a.prio] - prioridadeMap[b.prio];
+      });
+    } else if (ordem === "pendente") {
+      this.#tarefas.sort((a, b) => {
+        return a.concluida - b.concluida;
+      });
+    }
+  }
+
   toJSON() {
     return {
       titulo: this.titulo,

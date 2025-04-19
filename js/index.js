@@ -7,7 +7,7 @@ const estado = new Estado();
 (() => {
   const cancelarModalTarefa = document.getElementById("cancelar-tarefa");
   cancelarModalTarefa.addEventListener("click", () =>
-    Lista.OcultarOverlayTarefa(),
+    Lista.OcultarOverlayTarefa()
   );
 
   const addModalTarefa = document.getElementById("add-tarefa");
@@ -15,17 +15,17 @@ const estado = new Estado();
 
   const cancelarModalLista = document.getElementById("cancelar-lista");
   cancelarModalLista.addEventListener("click", () =>
-    Lista.OcultarOverlayLista(),
+    Lista.OcultarOverlayLista()
   );
 
   const addModalLista = document.getElementById("add-lista");
   addModalLista.addEventListener("click", () => Lista.MostrarOverlayLista());
 
   const cancelarModalEditTarefa = document.getElementById(
-    "cancelar-edit-tarefa",
+    "cancelar-edit-tarefa"
   );
   cancelarModalEditTarefa.addEventListener("click", () =>
-    Lista.OcultarOverlayEditTarefa(),
+    Lista.OcultarOverlayEditTarefa()
   );
 })();
 
@@ -80,12 +80,17 @@ document
         data,
         hora,
         prio,
-        concluida,
+        concluida
       );
     }
 
     form.reset();
     Lista.OcultarOverlayEditTarefa();
   });
+
+document.getElementById("filtro-tarefa").addEventListener("change", (event) => {
+  estado.setOrdem(event.target.value);
+  estado.renderTarefas();
+});
 
 estado.renderListas();

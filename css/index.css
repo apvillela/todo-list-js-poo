@@ -27,17 +27,21 @@ header {
   }
 }
 
+.container {
+  display: flex;
+  gap: 50px;
+}
+
 a {
   color: var(--foreground);
   text-decoration: none;
 }
 
 main {
-  width: 1000px;
   margin: 0 auto;
 
   display: flex;
-  gap: 100px;
+  justify-content: space-around;
 }
 
 .esquerda {
@@ -45,19 +49,16 @@ main {
 }
 
 .direita {
-  max-width: 620px;
+  width: 700px;
 }
 
 .topo {
   display: flex;
-  margin: 20px 0;
-
-  h2 {
-    margin: auto 0;
-  }
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
 
   button {
-    margin: auto 0 0 auto;
     max-height: 20px;
   }
 }
@@ -130,4 +131,41 @@ main {
   &:hover {
     filter: brightness(100%);
   }
+}
+
+.ordenar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--foreground);
+  }
+
+  select {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color3);
+    color: var(--foreground);
+    font-size: 14px;
+
+    filter: opacity(80%);
+  }
+}
+
+#pesquisa-tarefa {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--color3);
+  color: var(--foreground);
+  width: 180px;
+  font-size: 14px;
 }

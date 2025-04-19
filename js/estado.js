@@ -2,6 +2,8 @@ import Lista from "./lista.js";
 import Tarefa from "./tarefa.js";
 
 class Estado {
+  ordem = null;
+
   constructor() {
     const listas = localStorage.getItem("listas");
 
@@ -18,8 +20,19 @@ class Estado {
         });
     }
 
+    this.ordem = document.querySelector(
+      "select#filtro-tarefa"
+    ).options[0].value;
     this.listaAtual = null;
     this.listaAtualDOM = null;
+  }
+
+  setOrdem(ordem) {
+    this.ordem = ordem;
+  }
+
+  getOrdem() {
+    return this.ordem;
   }
 
   renderListas() {
@@ -64,7 +77,7 @@ class Estado {
     ) {
       this.listaAtual = this.listas[0];
       this.listaAtualDOM = document.getElementById(
-        Lista.formatarIdTitulo(this.listaAtual.titulo),
+        Lista.formatarIdTitulo(this.listaAtual.titulo)
       );
 
       this.listaAtualDOM.classList.add("selecionado");
@@ -78,6 +91,8 @@ class Estado {
     container.innerHTML = "";
 
     if (!this.listaAtual) return;
+
+    this.listaAtual.ordenarTarefas(this.ordem);
 
     this.listaAtual.tarefas.forEach((tarefa) => {
       tarefa.inserirTarefa();
@@ -116,7 +131,6 @@ class Estado {
     let prio = _prio;
 
     const nova = new Tarefa(titulo, desc, data, hora, prio);
-    console.log(nova);
     return nova;
   }
 

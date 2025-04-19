@@ -60,7 +60,7 @@ class Tarefa {
     titulo.innerText = this.titulo;
 
     const data = document.createElement("p");
-    data.innerText = this.data;
+    data.innerText = `${this.data} - ${this.hora}`;
 
     tarefa.appendChild(titulo);
     tarefa.appendChild(data);
