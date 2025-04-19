@@ -17,14 +17,16 @@ class Lista {
   }
 
   ordenarTarefas(ordem) {
-    function parseBRDate(dataStr) {
+    function parseBRDate(dataStr, horaStr) {
       const [dia, mes, ano] = dataStr.split("/").map(Number);
-      return new Date(ano, mes - 1, dia).getTime();
+      const [hora, minuto] = horaStr.split(":").map(Number);
+
+      return new Date(ano, mes - 1, dia, hora, minuto).getTime();
     }
 
     if (ordem === "data") {
       this.#tarefas.sort((a, b) => {
-        return parseBRDate(a.data) - parseBRDate(b.data);
+        return parseBRDate(a.data, a.hora) - parseBRDate(b.data, a.hora);
       });
     } else if (ordem === "titulo") {
       this.#tarefas.sort((a, b) => {
