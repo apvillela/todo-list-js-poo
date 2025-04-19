@@ -26,10 +26,22 @@ class Lista {
       this.#tarefas.sort((a, b) => {
         return parseBRDate(a.data) - parseBRDate(b.data);
       });
+    } else if (ordem === "titulo") {
+      this.#tarefas.sort((a, b) => {
+        return a.titulo.localeCompare(b.titulo);
+      });
+    } else if (ordem === "desc") {
+      this.#tarefas.sort((a, b) => {
+        return b.titulo.localeCompare(a.titulo);
+      });
     } else if (ordem === "prioridade") {
       const prioridadeMap = { importante: 1, normal: 2 };
       this.#tarefas.sort((a, b) => {
         return prioridadeMap[a.prio] - prioridadeMap[b.prio];
+      });
+    } else if (ordem === "pendente") {
+      this.#tarefas.sort((a, b) => {
+        return a.concluida - b.concluida;
       });
     }
   }
