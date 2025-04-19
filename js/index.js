@@ -93,4 +93,9 @@ document.getElementById("filtro-tarefa").addEventListener("change", (event) => {
   estado.renderTarefas();
 });
 
+document.getElementById("exibir-tarefa").addEventListener("change", (event) => {
+  estado.setExibir(event.target.value);
+  estado.renderTarefas();
+});
+
 estado.renderListas();

@@ -44,20 +44,12 @@ main {
   justify-content: space-around;
 }
 
-.esquerda {
-  max-width: 280px;
-}
-
-.direita {
-  width: 700px;
-}
-
 .topo {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
   align-items: center;
-
+  gap: 20px;
   button {
     max-height: 20px;
   }
@@ -133,7 +125,7 @@ main {
   }
 }
 
-.ordenar {
+.selects {
   display: flex;
   align-items: center;
   gap: 8px;
