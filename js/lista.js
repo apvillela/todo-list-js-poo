@@ -16,6 +16,19 @@ class Lista {
     this.#tarefas.push(tarefa);
   }
 
+  ordenarTarefas(ordem) {
+    function parseBRDate(dataStr) {
+      const [dia, mes, ano] = dataStr.split("/").map(Number);
+      return new Date(ano, mes - 1, dia).getTime();
+    }
+
+    if (ordem === "data") {
+      this.#tarefas.sort((a, b) => {
+        return parseBRDate(a.data) - parseBRDate(b.data);
+      });
+    }
+  }
+
   toJSON() {
     return {
       titulo: this.titulo,
