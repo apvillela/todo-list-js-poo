@@ -68,7 +68,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 10px;
   border: 2px solid var(--color8);
 
@@ -80,11 +80,12 @@ main {
 
 #well-tarefa,
 #well-lista {
+  display: flex;
   box-sizing: border-box;
-  padding-top: 300px;
 }
 
 .lista {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
 
@@ -110,10 +111,12 @@ main {
 }
 
 .tarefa {
+  cursor: pointer;
   width: 540px;
 }
 
 .add {
+  cursor: pointer;
   background-color: var(--color15);
   border: 0;
   padding: 15px 11px;
