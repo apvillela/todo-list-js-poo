@@ -32,7 +32,7 @@ const estado = new Estado();
 document.getElementById("tarefa-form").addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const data = new FormData(formF);
+  const data = new FormData(event.target);
   const tarefa = estado.criarTarefa(...data.values());
   if (tarefa != null) {
     estado.addTarefaToListaAtual(tarefa);
@@ -46,7 +46,7 @@ document
   .addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const data = new FormData(formL);
+    const data = new FormData(event.target);
 
     const lista = estado.criarLista(...data.values());
     if (lista != null) {

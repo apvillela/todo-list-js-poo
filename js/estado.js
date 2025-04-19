@@ -111,8 +111,8 @@ class Estado {
   criarTarefa(_titulo, _desc, _data, _hora, _prio) {
     let titulo = _titulo;
     let desc = _desc;
-    let data = formatarDataBrasileira(_data);
-    let hora = formatarHoraBrasileira(_hora);
+    let data = Estado.formatarDataBrasileira(_data);
+    let hora = Estado.formatarHoraBrasileira(_hora);
     let prio = _prio;
 
     const nova = new Tarefa(titulo, desc, data, hora, prio);
