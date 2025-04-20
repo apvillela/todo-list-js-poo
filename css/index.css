@@ -169,3 +169,28 @@ main {
   flex-direction: column;
   align-self: center;
 }
+
+#pesquisa-tarefa {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: var(--color3);
+  color: var(--foreground);
+  border: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.pesquisa label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--foreground);
+  filter: opacity(80%);
+}
+
+#buscar-todas-listas {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
