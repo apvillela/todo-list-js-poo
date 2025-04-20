@@ -27,9 +27,15 @@ header {
   }
 }
 
-.container {
+.campo-tarefas {
   display: flex;
   gap: 50px;
+}
+
+.campo-total {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 a {
@@ -153,11 +159,13 @@ main {
 }
 
 #pesquisa-tarefa {
-  padding: 6px 10px;
-  border-radius: 8px;
   border: none;
   background-color: var(--color3);
   color: var(--foreground);
-  width: 180px;
-  font-size: 14px;
+}
+
+.pesquisa {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }

@@ -98,4 +98,11 @@ document.getElementById("exibir-tarefa").addEventListener("change", (event) => {
   estado.renderTarefas();
 });
 
+document
+  .querySelector("input#pesquisa-tarefa")
+  .addEventListener("input", (event) => {
+    estado.setBusca(event.target.value);
+    estado.renderTarefas();
+  });
+
 estado.renderListas();

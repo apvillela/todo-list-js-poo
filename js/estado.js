@@ -4,6 +4,7 @@ import Tarefa from "./tarefa.js";
 class Estado {
   ordem = null;
   exibir = null;
+  busca = null;
 
   constructor() {
     const listas = localStorage.getItem("listas");
@@ -47,6 +48,14 @@ class Estado {
 
   getExibir() {
     return this.exibir;
+  }
+
+  setBusca(busca) {
+    this.busca = busca;
+  }
+
+  getBusca() {
+    return this.busca;
   }
 
   renderListas() {
@@ -117,6 +126,16 @@ class Estado {
       tarefasFiltradas = this.listaAtual.tarefas.filter((t) => t.concluida);
     } else {
       tarefasFiltradas = [];
+    }
+
+    if (this.busca) {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (t) =>
+          t.desc.toLowerCase().includes(this.busca.toLowerCase()) |
+          t.data.includes(this.busca) |
+          t.hora.includes(this.busca) |
+          `${t.data} - ${t.hora}`.includes(this.busca)
+      );
     }
 
     tarefasFiltradas.forEach((tarefa) => {
