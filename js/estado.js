@@ -5,6 +5,7 @@ class Estado {
   ordem = null;
   exibir = null;
   busca = null;
+  buscaGlobal = false;
 
   constructor() {
     const listas = localStorage.getItem("listas");
@@ -56,6 +57,14 @@ class Estado {
 
   getBusca() {
     return this.busca;
+  }
+
+  setBuscaGlobal(busca) {
+    this.buscaGlobal = busca;
+  }
+
+  getBuscaGlobal() {
+    return this.buscaGlobal;
   }
 
   renderListas() {
@@ -113,29 +122,50 @@ class Estado {
     const container = document.getElementById("well-tarefa");
     container.innerHTML = "";
 
-    if (!this.listaAtual) return;
+    let tarefasFiltradas = [];
 
-    this.listaAtual.ordenarTarefas(this.ordem);
+    if (this.busca && this.buscaGlobal) {
+      // busca e filtro em todas as listas
+      this.listas.forEach((lista) => {
+        const tarefas = lista.tarefas
+          .filter(
+            (t) =>
+              t.desc.toLowerCase().includes(this.busca.toLowerCase()) ||
+              t.data.includes(this.busca) ||
+              t.hora.includes(this.busca) ||
+              `${t.data} - ${t.hora}`.includes(this.busca)
+          )
+          .filter((t) => {
+            if (this.exibir === "pendentes") return !t.concluida;
+            if (this.exibir === "concluidas") return t.concluida;
+            return true; // todas
+          });
 
-    let tarefasFiltradas;
-    if (this.exibir === "todas") {
-      tarefasFiltradas = this.listaAtual.tarefas;
-    } else if (this.exibir === "pendentes") {
-      tarefasFiltradas = this.listaAtual.tarefas.filter((t) => !t.concluida);
-    } else if (this.exibir === "concluidas") {
-      tarefasFiltradas = this.listaAtual.tarefas.filter((t) => t.concluida);
+        tarefasFiltradas.push(...tarefas);
+      });
     } else {
-      tarefasFiltradas = [];
-    }
+      if (!this.listaAtual) return;
 
-    if (this.busca) {
-      tarefasFiltradas = tarefasFiltradas.filter(
-        (t) =>
-          t.desc.toLowerCase().includes(this.busca.toLowerCase()) |
-          t.data.includes(this.busca) |
-          t.hora.includes(this.busca) |
-          `${t.data} - ${t.hora}`.includes(this.busca)
-      );
+      this.listaAtual.ordenarTarefas(this.ordem);
+
+      if (this.exibir === "todas") {
+        tarefasFiltradas = this.listaAtual.tarefas;
+      } else if (this.exibir === "pendentes") {
+        tarefasFiltradas = this.listaAtual.tarefas.filter((t) => !t.concluida);
+      } else if (this.exibir === "concluidas") {
+        tarefasFiltradas = this.listaAtual.tarefas.filter((t) => t.concluida);
+      }
+
+      // busca só na lista atual
+      if (this.busca) {
+        tarefasFiltradas = tarefasFiltradas.filter(
+          (t) =>
+            t.desc.toLowerCase().includes(this.busca.toLowerCase()) ||
+            t.data.includes(this.busca) ||
+            t.hora.includes(this.busca) ||
+            `${t.data} - ${t.hora}`.includes(this.busca)
+        );
+      }
     }
 
     tarefasFiltradas.forEach((tarefa) => {

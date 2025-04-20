@@ -105,4 +105,11 @@ document
     estado.renderTarefas();
   });
 
+document
+  .querySelector("input#buscar-todas-listas")
+  .addEventListener("change", (event) => {
+    estado.setBuscaGlobal(Boolean(event.target.checked));
+    estado.renderTarefas();
+  });
+
 estado.renderListas();
