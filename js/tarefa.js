@@ -53,6 +53,26 @@ class Tarefa {
       form.prioridade.value = this.prio;
       form.concluida.checked = this.concluida;
 
+      const listaSelect = form.listaDestino;
+      listaSelect.innerHTML = ""; // limpa opcoes
+
+      const listas = JSON.parse(localStorage.getItem("listas"));
+
+      listas.forEach((lista) => {
+        const option = document.createElement("option");
+        option.value = lista.titulo;
+        option.textContent = lista.titulo;
+
+        const tarefaPertence = lista.tarefas.some(
+          (tarefa) => tarefa.titulo === this.titulo
+        );
+        if (tarefaPertence) {
+          option.selected = true;
+        }
+
+        listaSelect.appendChild(option);
+      });
+
       form.dataset.tarefaID = this.#id;
     };
 

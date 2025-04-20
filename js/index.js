@@ -69,6 +69,7 @@ document
     const hora = Estado.formatarHoraBrasileira(form.hora.value);
     const prio = form.prioridade.value;
     const concluida = form.concluida.checked;
+    const listaDestino = form.listaDestino.value;
 
     const idTarefa = form.dataset.tarefaID;
 
@@ -80,7 +81,8 @@ document
         data,
         hora,
         prio,
-        concluida
+        concluida,
+        listaDestino
       );
     }
 
