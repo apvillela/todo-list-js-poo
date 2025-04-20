@@ -24,49 +24,58 @@
     </header>
 
     <main>
-      <div class="container">
-        <div class="esquerda">
-          <div class="topo">
-            <h2>Listas</h2>
-            <button id="add-lista" class="add">+</button>
-          </div>
-          <div class="baixo">
-            <div class="well" id="well-lista"></div>
-          </div>
+      <div class="campo-total">
+        <div class="pesquisa">
+          <input
+            type="text"
+            id="pesquisa-tarefa"
+            placeholder="Pesquisar tarefa..."
+          />
+          <label>
+            <input type="checkbox" id="buscar-todas-listas" />
+            Buscar em todas as listas
+          </label>
         </div>
-        <div class="direita">
-          <div class="topo">
-            <h2>Tarefas</h2>
-            <input
-              type="text"
-              id="pesquisa-tarefa"
-              placeholder="Pesquisar tarefa..."
-            />
 
-            <div class="selects">
-              <p>Ordenar por:</p>
-              <select id="filtro-tarefa">
-                <option value="data">Data e Hora</option>
-                <option value="titulo">Título (alfabético)</option>
-                <option value="desc">Descrição (alfabético)</option>
-                <option value="prioridade">Prioridade</option>
-                <option value="pendente">Pendentes</option>
-              </select>
+        <div class="campo-tarefas">
+          <div class="esquerda">
+            <div class="topo">
+              <h2>Listas</h2>
+              <button id="add-lista" class="add">+</button>
             </div>
-
-            <div class="selects">
-              <p>Exibir:</p>
-              <select id="exibir-tarefa">
-                <option value="todas">Todas</option>
-                <option value="concluidas">Concluídas</option>
-                <option value="pendentes">Pendentes</option>
-              </select>
+            <div class="baixo">
+              <div class="well" id="well-lista"></div>
             </div>
-
-            <button id="add-tarefa" class="add">+</button>
           </div>
-          <div class="baixo">
-            <div class="well" id="well-tarefa"></div>
+          <div class="direita">
+            <div class="topo">
+              <h2>Tarefas</h2>
+
+              <div class="selects">
+                <p>Ordenar por:</p>
+                <select id="filtro-tarefa">
+                  <option value="data">Data e Hora</option>
+                  <option value="titulo">Título (alfabético)</option>
+                  <option value="desc">Descrição (alfabético)</option>
+                  <option value="prioridade">Prioridade</option>
+                  <option value="pendente">Pendentes</option>
+                </select>
+              </div>
+
+              <div class="selects">
+                <p>Exibir:</p>
+                <select id="exibir-tarefa">
+                  <option value="todas">Todas</option>
+                  <option value="concluidas">Concluídas</option>
+                  <option value="pendentes">Pendentes</option>
+                </select>
+              </div>
+
+              <button id="add-tarefa" class="add">+</button>
+            </div>
+            <div class="baixo">
+              <div class="well" id="well-tarefa"></div>
+            </div>
           </div>
         </div>
       </div>
