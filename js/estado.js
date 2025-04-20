@@ -208,7 +208,16 @@ class Estado {
     return nova;
   }
 
-  atualizarTarefa(id, titulo, desc, data, hora, prio, concluida) {
+  atualizarTarefa(
+    id,
+    titulo,
+    desc,
+    data,
+    hora,
+    prio,
+    concluida,
+    listaDestinoTitulo
+  ) {
     const tarefa = this.listaAtual.tarefas.find((t) => t.id == id);
 
     tarefa.titulo = titulo;
@@ -217,6 +226,23 @@ class Estado {
     tarefa.hora = hora;
     tarefa.prio = prio;
     tarefa.concluida = concluida;
+
+    // troca de lista
+    if (listaDestinoTitulo && this.listaAtual.titulo !== listaDestinoTitulo) {
+      const listaDestino = this.listas.find(
+        (lista) => lista.titulo === listaDestinoTitulo
+      );
+
+      if (listaDestino) {
+        // remove da atual
+        const index = this.listaAtual.tarefas.findIndex((t) => t.id == id);
+        if (index !== -1) {
+          const [tarefaRemovida] = this.listaAtual.tarefas.splice(index, 1);
+          // adiciona na nova
+          listaDestino.adicionarTarefa(tarefaRemovida);
+        }
+      }
+    }
 
     localStorage.setItem("listas", JSON.stringify(this.listas));
     this.renderTarefas();
