@@ -33,23 +33,19 @@ class Tarefa {
   }
 
   aplicarEstilo(elemento) {
+    // se estiver vencida aplique o vencida, porém se estiver conluida cancela o vencida
     if (this.isVencida()) {
       elemento.classList.add("vencida");
     }
     if (this.concluida) {
       elemento.classList.add("concluida");
     }
+    if (this.isVencida() && this.concluida) {
+      elemento.classList.remove("vencida");
+    }
   }
 
   inserirTarefa() {
-    // exemplo tarefa:
-    /*
-            <div class="lista tarefa">
-     //         <p>TituloDaNota</p>
-              <p>DataDaNota</p>
-            </div>
-    */
-
     const well = document.getElementById("well-tarefa");
 
     const tarefa = document.createElement("div");
@@ -80,7 +76,7 @@ class Tarefa {
         option.textContent = lista.titulo;
 
         const tarefaPertence = lista.tarefas.some(
-          (tarefa) => tarefa.titulo === this.titulo,
+          (tarefa) => tarefa.titulo === this.titulo
         );
         if (tarefaPertence) {
           option.selected = true;
@@ -94,9 +90,27 @@ class Tarefa {
 
     const titulo = document.createElement("p");
     titulo.innerText = this.titulo;
+    titulo.style.marginBottom = "1px";
 
+    const descricao = document.createElement("p");
+    descricao.innerText = `Descrição: ${this.desc.slice(0, 48)}${
+      this.desc.length > 48 ? "..." : ""
+    }`;
+    descricao.style.marginBottom = "1px";
+    //Gera a data final dentro do carrd
     const data = document.createElement("p");
-    data.innerText = `${this.data} - ${this.hora}`;
+    data.innerText = `Data Final: ${this.data} - ${this.hora}`;
+    data.style.marginBottom = "1px";
+
+    //Gerando status vencida e outros no car
+    const status = document.createElement("p");
+    if (this.concluida) {
+      status.innerText = "Status: Concluída";
+    } else if (this.isVencida()) {
+      status.innerText = "Status: Vencida";
+    } else {
+      status.innerText = "Status: Pendente";
+    }
 
     // Botão de excluir tarefa
     const excluirBtn = document.createElement("button");
@@ -108,7 +122,9 @@ class Tarefa {
     };
 
     tarefa.appendChild(titulo);
+    tarefa.appendChild(descricao);
     tarefa.appendChild(data);
+    tarefa.appendChild(status);
     tarefa.appendChild(excluirBtn);
 
     tarefa.classList.add("lista", "tarefa");
@@ -120,18 +136,18 @@ class Tarefa {
 
   excluirTarefa() {
     const confirmacao = confirm(
-      "Tens certeza de que deseja excluir esta tarefa?",
+      "Tens certeza de que deseja excluir esta tarefa?"
     );
     if (!confirmacao) return;
 
     const listas = JSON.parse(localStorage.getItem("listas"));
     const listaAtual = listas.find((lista) =>
-      lista.tarefas.some((tarefa) => tarefa.titulo === this.titulo),
+      lista.tarefas.some((tarefa) => tarefa.titulo === this.titulo)
     );
 
     if (listaAtual) {
       listaAtual.tarefas = listaAtual.tarefas.filter(
-        (tarefa) => tarefa.titulo !== this.titulo,
+        (tarefa) => tarefa.titulo !== this.titulo
       );
       localStorage.setItem("listas", JSON.stringify(listas));
       location.reload(); // tentei sem mas vai assim por enquanto
