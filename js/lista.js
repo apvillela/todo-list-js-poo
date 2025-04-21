@@ -79,6 +79,7 @@ class Lista {
 
     const tarefaF = document.getElementById("tarefa-form");
     tarefaF.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
   }
 
   static OcultarOverlayTarefa() {
@@ -89,6 +90,7 @@ class Lista {
 
     const tarefaF = document.getElementById("tarefa-form");
     tarefaF.classList.add("hidden");
+    document.body.style.overflow = "";
   }
 
   static MostrarOverlayLista() {
@@ -99,6 +101,7 @@ class Lista {
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
   }
 
   static OcultarOverlayLista() {
@@ -109,6 +112,8 @@ class Lista {
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.add("hidden");
+
+    document.body.style.overflow = "";
   }
 
   static OcultarOverlayEditTarefa() {
@@ -119,6 +124,7 @@ class Lista {
 
     const tarefaF = document.getElementById("tarefa-edit-form");
     tarefaF.classList.add("hidden");
+    document.body.style.overflow = "";
   }
 
   static MostrarOverlayEditTarefa() {
@@ -129,6 +135,7 @@ class Lista {
 
     const tarefaF = document.getElementById("tarefa-edit-form");
     tarefaF.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
   }
 
   static fromJSON(obj) {
