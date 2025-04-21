@@ -94,8 +94,18 @@ class Estado {
       const tarefaP = document.createElement("p");
       tarefaP.textContent = `${lista.tarefas.length} Tarefas`;
 
+      // Botão de excluir lista
+      const excluirBtn = document.createElement("button");
+      excluirBtn.innerText = "X";
+      excluirBtn.classList.add("excluir-tarefa");
+      excluirBtn.onclick = (event) => {
+        event.stopPropagation();
+        lista.excluirLista();
+      };
+
       listaDiv.appendChild(tituloP);
       listaDiv.appendChild(tarefaP);
+      listaDiv.appendChild(excluirBtn);
 
       listaDiv.id = Lista.formatarIdTitulo(lista.titulo);
 

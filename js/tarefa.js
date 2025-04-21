@@ -41,6 +41,7 @@ class Tarefa {
     tarefa.onclick = () => {
       Lista.MostrarOverlayEditTarefa();
 
+
       const form = document.getElementById("tarefa-edit-form");
 
       form.titulo.value = this.titulo;
@@ -82,12 +83,40 @@ class Tarefa {
     const data = document.createElement("p");
     data.innerText = `${this.data} - ${this.hora}`;
 
+    // Botão de excluir tarefa
+    const excluirBtn = document.createElement("button");
+    excluirBtn.innerText = "X";
+    excluirBtn.classList.add("excluir-tarefa");
+    excluirBtn.onclick = (event) => {
+      event.preventDefault();
+      this.excluirTarefa();
+    };
+
     tarefa.appendChild(titulo);
     tarefa.appendChild(data);
+    tarefa.appendChild(excluirBtn);
 
     tarefa.classList.add("lista", "tarefa");
 
     well.append(tarefa);
+  }
+
+  excluirTarefa() {
+    const confirmacao = confirm("Tens certeza de que deseja excluir esta tarefa?");
+    if (!confirmacao) return;
+
+    const listas = JSON.parse(localStorage.getItem("listas"));
+    const listaAtual = listas.find((lista) =>
+      lista.tarefas.some((tarefa) => tarefa.titulo === this.titulo)
+    );
+
+    if (listaAtual) {
+      listaAtual.tarefas = listaAtual.tarefas.filter(
+        (tarefa) => tarefa.titulo !== this.titulo
+      );
+      localStorage.setItem("listas", JSON.stringify(listas));
+      location.reload();// tentei sem mas vai assim por enquanto
+    }
   }
 
   static fromJSON(obj) {
