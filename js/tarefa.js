@@ -90,12 +90,27 @@ class Tarefa {
 
     const titulo = document.createElement("p");
     titulo.innerText = this.titulo;
+    titulo.style.marginBottom = "1px";
 
     const descricao = document.createElement("p");
-    descricao.innerText = `Descrição: ${this.desc.slice(0, 48)}${this.desc.length > 30 ? '...' : ''}`;
-
+    descricao.innerText = `Descrição: ${this.desc.slice(0, 48)}${
+      this.desc.length > 48 ? "..." : ""
+    }`;
+    descricao.style.marginBottom = "1px";
+    //Gera a data final dentro do carrd
     const data = document.createElement("p");
-    data.innerText = `Data: ${this.data} - ${this.hora}`;
+    data.innerText = `Data Final: ${this.data} - ${this.hora}`;
+    data.style.marginBottom = "1px";
+
+    //Gerando status vencida e outros no car
+    const status = document.createElement("p");
+    if (this.concluida) {
+      status.innerText = "Status: Concluída";
+    } else if (this.isVencida()) {
+      status.innerText = "Status: Vencida";
+    } else {
+      status.innerText = "Status: Pendente";
+    }
 
     // Botão de excluir tarefa
     const excluirBtn = document.createElement("button");
@@ -109,6 +124,7 @@ class Tarefa {
     tarefa.appendChild(titulo);
     tarefa.appendChild(descricao);
     tarefa.appendChild(data);
+    tarefa.appendChild(status);
     tarefa.appendChild(excluirBtn);
 
     tarefa.classList.add("lista", "tarefa");
