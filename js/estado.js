@@ -24,11 +24,11 @@ class Estado {
     }
 
     this.ordem = document.querySelector(
-      "select#filtro-tarefa"
+      "select#filtro-tarefa",
     ).options[0].value;
 
     this.exibir = document.querySelector(
-      "select#exibir-tarefa"
+      "select#exibir-tarefa",
     ).options[0].value;
 
     this.listaAtual = null;
@@ -119,7 +119,7 @@ class Estado {
     ) {
       this.listaAtual = this.listas[0];
       this.listaAtualDOM = document.getElementById(
-        Lista.formatarIdTitulo(this.listaAtual.titulo)
+        Lista.formatarIdTitulo(this.listaAtual.titulo),
       );
 
       this.listaAtualDOM.classList.add("selecionado");
@@ -143,7 +143,7 @@ class Estado {
               t.desc.toLowerCase().includes(this.busca.toLowerCase()) ||
               t.data.includes(this.busca) ||
               t.hora.includes(this.busca) ||
-              `${t.data} - ${t.hora}`.includes(this.busca)
+              `${t.data} - ${t.hora}`.includes(this.busca),
           )
           .filter((t) => {
             if (this.exibir === "pendentes") return !t.concluida;
@@ -173,7 +173,7 @@ class Estado {
             t.desc.toLowerCase().includes(this.busca.toLowerCase()) ||
             t.data.includes(this.busca) ||
             t.hora.includes(this.busca) ||
-            `${t.data} - ${t.hora}`.includes(this.busca)
+            `${t.data} - ${t.hora}`.includes(this.busca),
         );
       }
     }
@@ -226,7 +226,7 @@ class Estado {
     hora,
     prio,
     concluida,
-    listaDestinoTitulo
+    listaDestinoTitulo,
   ) {
     const tarefa = this.listaAtual.tarefas.find((t) => t.id == id);
 
@@ -240,7 +240,7 @@ class Estado {
     // troca de lista
     if (listaDestinoTitulo && this.listaAtual.titulo !== listaDestinoTitulo) {
       const listaDestino = this.listas.find(
-        (lista) => lista.titulo === listaDestinoTitulo
+        (lista) => lista.titulo === listaDestinoTitulo,
       );
 
       if (listaDestino) {
@@ -255,7 +255,7 @@ class Estado {
     }
 
     localStorage.setItem("listas", JSON.stringify(this.listas));
-    this.renderTarefas();
+    this.renderListas();
   }
 
   static formatarDataBrasileira(data) {

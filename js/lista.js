@@ -47,9 +47,11 @@ class Lista {
       });
     }
   }
-//exclusão de listas//
+  //exclusão de listas//
   excluirLista() {
-    const confirmacao = confirm("Tens certeza de que deseja excluir esta lista?");
+    const confirmacao = confirm(
+      "Tens certeza de que deseja excluir esta lista?",
+    );
     if (!confirmacao) return;
 
     const listas = JSON.parse(localStorage.getItem("listas"));

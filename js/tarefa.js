@@ -57,7 +57,6 @@ class Tarefa {
     tarefa.onclick = () => {
       Lista.MostrarOverlayEditTarefa();
 
-
       const form = document.getElementById("tarefa-edit-form");
 
       form.titulo.value = this.titulo;
@@ -81,7 +80,7 @@ class Tarefa {
         option.textContent = lista.titulo;
 
         const tarefaPertence = lista.tarefas.some(
-          (tarefa) => tarefa.titulo === this.titulo
+          (tarefa) => tarefa.titulo === this.titulo,
         );
         if (tarefaPertence) {
           option.selected = true;
@@ -120,20 +119,22 @@ class Tarefa {
   }
 
   excluirTarefa() {
-    const confirmacao = confirm("Tens certeza de que deseja excluir esta tarefa?");
+    const confirmacao = confirm(
+      "Tens certeza de que deseja excluir esta tarefa?",
+    );
     if (!confirmacao) return;
 
     const listas = JSON.parse(localStorage.getItem("listas"));
     const listaAtual = listas.find((lista) =>
-      lista.tarefas.some((tarefa) => tarefa.titulo === this.titulo)
+      lista.tarefas.some((tarefa) => tarefa.titulo === this.titulo),
     );
 
     if (listaAtual) {
       listaAtual.tarefas = listaAtual.tarefas.filter(
-        (tarefa) => tarefa.titulo !== this.titulo
+        (tarefa) => tarefa.titulo !== this.titulo,
       );
       localStorage.setItem("listas", JSON.stringify(listas));
-      location.reload();// tentei sem mas vai assim por enquanto
+      location.reload(); // tentei sem mas vai assim por enquanto
     }
   }
 
