@@ -25,6 +25,22 @@ class Tarefa {
     this.concluida = true;
   }
 
+  isVencida() {
+    const [dia, mes, ano] = this.data.split("/").map(Number);
+    const [hora, minuto] = this.hora.split(":").map(Number);
+    const dataTarefa = new Date(ano, mes - 1, dia, hora, minuto);
+    return dataTarefa < new Date();
+  }
+
+  aplicarEstilo(elemento) {
+    if (this.isVencida()) {
+      elemento.classList.add("vencida");
+    }
+    if (this.concluida) {
+      elemento.classList.add("concluida");
+    }
+  }
+
   inserirTarefa() {
     // exemplo tarefa:
     /*
@@ -97,6 +113,8 @@ class Tarefa {
     tarefa.appendChild(excluirBtn);
 
     tarefa.classList.add("lista", "tarefa");
+
+    this.aplicarEstilo(tarefa);
 
     well.append(tarefa);
   }

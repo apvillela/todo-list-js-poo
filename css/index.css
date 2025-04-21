@@ -216,3 +216,13 @@ main {
 .excluir-tarefa:hover {
   background-color: darkred;
 }
+
+.vencida {
+  border: 2px solid red;
+  background-color: #e95353;
+}
+
+.concluida {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
