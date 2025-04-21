@@ -47,6 +47,20 @@ class Lista {
       });
     }
   }
+//exclusão de listas//
+  excluirLista() {
+    const confirmacao = confirm("Tens certeza de que deseja excluir esta lista?");
+    if (!confirmacao) return;
+
+    const listas = JSON.parse(localStorage.getItem("listas"));
+    const index = listas.findIndex((lista) => lista.titulo === this.titulo);
+
+    if (index !== -1) {
+      listas.splice(index, 1);
+      localStorage.setItem("listas", JSON.stringify(listas));
+      location.reload();
+    }
+  }
 
   toJSON() {
     return {
