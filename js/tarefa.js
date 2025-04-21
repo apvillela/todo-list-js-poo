@@ -46,14 +46,6 @@ class Tarefa {
   }
 
   inserirTarefa() {
-    // exemplo tarefa:
-    /*
-            <div class="lista tarefa">
-     //         <p>TituloDaNota</p>
-              <p>DataDaNota</p>
-            </div>
-    */
-
     const well = document.getElementById("well-tarefa");
 
     const tarefa = document.createElement("div");
@@ -99,8 +91,11 @@ class Tarefa {
     const titulo = document.createElement("p");
     titulo.innerText = this.titulo;
 
+    const descricao = document.createElement("p");
+    descricao.innerText = `Descrição: ${this.desc.slice(0, 48)}${this.desc.length > 30 ? '...' : ''}`;
+
     const data = document.createElement("p");
-    data.innerText = `${this.data} - ${this.hora}`;
+    data.innerText = `Data: ${this.data} - ${this.hora}`;
 
     // Botão de excluir tarefa
     const excluirBtn = document.createElement("button");
@@ -112,6 +107,7 @@ class Tarefa {
     };
 
     tarefa.appendChild(titulo);
+    tarefa.appendChild(descricao);
     tarefa.appendChild(data);
     tarefa.appendChild(excluirBtn);
 
