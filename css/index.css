@@ -212,6 +212,7 @@ main {
   right: 5px;
   transition: background-color 0.3s ease;
 }
+/* teste 1 */
 
 .excluir-tarefa:hover {
   background-color: darkred;
