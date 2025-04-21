@@ -1,0 +1,93 @@
+@media (max-width: 1000px) {
+  .campo-tarefas {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .pesquisa {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .direita,
+  .esquerda {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #well-lista,
+  #well-tarefa {
+    width: 100%;
+  }
+
+  .lista {
+    width: 90%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  .direita .topo {
+    flex-wrap: wrap;
+  }
+
+  .selects {
+    margin-bottom: 10px;
+  }
+
+  header {
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  main {
+    padding: 0 15px;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-form {
+    width: 90%;
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .selects {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .botoes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .botoes button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

@@ -12,6 +12,7 @@
     <link href="./css/index.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
     <link href="./css/utils.css" rel="stylesheet" />
+    <link href="./css/query.css" rel="stylesheet" />
     <script type="module" src="./js/index.js" defer></script>
   </head>
   <body>
@@ -83,86 +84,29 @@
 
     <footer></footer>
 
-    <div class="overlay hidden" id="overlay-tarefa">
-      <form class="modal-form hidden" id="tarefa-form">
-        <label>
-          Título:
-          <input type="text" name="titulo" required />
-        </label>
+    <div id="bg-overlay" class="hidden">
+      <div class="overlay hidden" id="overlay-tarefa">
+        <form class="modal-form hidden" id="tarefa-form">
+          <label>
+            Título:
+            <input type="text" name="titulo" required />
+          </label>
 
-        <label>
-          Descrição:
-          <textarea name="descrição" required></textarea>
-        </label>
+          <label>
+            Descrição:
+            <textarea name="descrição" required></textarea>
+          </label>
 
-        <label>
-          Data:
-          <input type="date" name="data" lang="pt-BR" required />
-        </label>
+          <label>
+            Data:
+            <input type="date" name="data" lang="pt-BR" required />
+          </label>
 
-        <label>
-          Horário:
-          <input type="time" name="hora" required />
-        </label>
+          <label>
+            Horário:
+            <input type="time" name="hora" required />
+          </label>
 
-        <label>
-          Prioridade:
-          <select name="prioridade" required>
-            <option value="normal">Normal</option>
-            <option value="importante">Importante</option>
-          </select>
-        </label>
-
-        <div class="botoes">
-          <button type="button" id="cancelar-tarefa">Cancelar</button>
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
-
-      <form id="form-nova-lista" class="modal-form hidden">
-        <h2>Criar Nova Lista</h2>
-        <input
-          type="text"
-          id="novo-titulo-lista"
-          name="titulo"
-          placeholder="Título da lista"
-          required
-        />
-        <div class="botoes">
-          <button type="submit">Criar</button>
-          <button type="button" id="cancelar-lista">Cancelar</button>
-        </div>
-      </form>
-
-      <form class="modal-form hidden" id="tarefa-edit-form">
-        <label>
-          Título:
-          <input type="text" name="titulo" required />
-        </label>
-
-        <label>
-          Descrição:
-          <textarea name="descrição" required></textarea>
-        </label>
-
-        <label>
-          Data:
-          <input type="date" name="data" lang="pt-BR" required />
-        </label>
-
-        <label>
-          Horário:
-          <input type="time" name="hora" required />
-        </label>
-
-        <div
-          class="options"
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          "
-        >
           <label>
             Prioridade:
             <select name="prioridade" required>
@@ -171,19 +115,80 @@
             </select>
           </label>
 
+          <div class="botoes">
+            <button type="button" id="cancelar-tarefa">Cancelar</button>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+
+        <form id="form-nova-lista" class="modal-form hidden">
+          <h2>Criar Nova Lista</h2>
+          <input
+            type="text"
+            id="novo-titulo-lista"
+            name="titulo"
+            placeholder="Título da lista"
+            required
+          />
+          <div class="botoes">
+            <button type="submit">Criar</button>
+            <button type="button" id="cancelar-lista">Cancelar</button>
+          </div>
+        </form>
+
+        <form class="modal-form hidden" id="tarefa-edit-form">
           <label>
-            Lista:
-            <select name="listaDestino" required></select>
+            Título:
+            <input type="text" name="titulo" required />
           </label>
 
-          <label> Concluída: <input type="checkbox" name="concluida" /> </label>
-        </div>
+          <label>
+            Descrição:
+            <textarea name="descrição" required></textarea>
+          </label>
 
-        <div class="botoes">
-          <button type="button" id="cancelar-edit-tarefa">Cancelar</button>
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
+          <label>
+            Data:
+            <input type="date" name="data" lang="pt-BR" required />
+          </label>
+
+          <label>
+            Horário:
+            <input type="time" name="hora" required />
+          </label>
+
+          <div
+            class="options"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <label>
+              Prioridade:
+              <select name="prioridade" required>
+                <option value="normal">Normal</option>
+                <option value="importante">Importante</option>
+              </select>
+            </label>
+
+            <label>
+              Lista:
+              <select name="listaDestino" required></select>
+            </label>
+
+            <label>
+              Concluída: <input type="checkbox" name="concluida" />
+            </label>
+          </div>
+
+          <div class="botoes">
+            <button type="button" id="cancelar-edit-tarefa">Cancelar</button>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
