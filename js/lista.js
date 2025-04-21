@@ -73,7 +73,9 @@ class Lista {
 
   static MostrarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.remove("hidden");
+    bg_overlay.classList.remove("hidden");
 
     const tarefaF = document.getElementById("tarefa-form");
     tarefaF.classList.remove("hidden");
@@ -81,7 +83,9 @@ class Lista {
 
   static OcultarOverlayTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.add("hidden");
+    bg_overlay.classList.add("hidden");
 
     const tarefaF = document.getElementById("tarefa-form");
     tarefaF.classList.add("hidden");
@@ -89,7 +93,9 @@ class Lista {
 
   static MostrarOverlayLista() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.remove("hidden");
+    bg_overlay.classList.remove("hidden");
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.remove("hidden");
@@ -97,7 +103,9 @@ class Lista {
 
   static OcultarOverlayLista() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.add("hidden");
+    bg_overlay.classList.add("hidden");
 
     const listaF = document.getElementById("form-nova-lista");
     listaF.classList.add("hidden");
@@ -105,7 +113,9 @@ class Lista {
 
   static OcultarOverlayEditTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.add("hidden");
+    bg_overlay.classList.add("hidden");
 
     const tarefaF = document.getElementById("tarefa-edit-form");
     tarefaF.classList.add("hidden");
@@ -113,7 +123,9 @@ class Lista {
 
   static MostrarOverlayEditTarefa() {
     const overlay = document.getElementById("overlay-tarefa");
+    const bg_overlay = document.getElementById("bg-overlay");
     overlay.classList.remove("hidden");
+    bg_overlay.classList.remove("hidden");
 
     const tarefaF = document.getElementById("tarefa-edit-form");
     tarefaF.classList.remove("hidden");

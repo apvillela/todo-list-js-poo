@@ -1,14 +1,27 @@
+#bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: all;
+}
+
 .overlay {
   width: 900px;
   height: 650px;
   background-color: var(--color1);
   z-index: 100;
 
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-
+  position: relative;
   border-radius: 20px;
   filter: opacity(100%);
 

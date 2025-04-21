@@ -9,23 +9,23 @@
     max-width: 500px;
   }
 
-  .direita, .esquerda {
-      width: 100%;
-      margin: 0 auto;
+  .direita,
+  .esquerda {
+    width: 100%;
+    margin: 0 auto;
   }
 
-  #well-lista, #well-tarefa {
-      width: 100%;
+  #well-lista,
+  #well-tarefa {
+    width: 100%;
   }
 
-  
   .lista {
     width: 90%;
     max-width: 300px;
     box-sizing: border-box;
   }
 
-  
   .direita .topo {
     flex-wrap: wrap;
   }
@@ -34,7 +34,6 @@
     margin-bottom: 10px;
   }
 
-  
   header {
     height: 100px;
     margin-bottom: 30px;
@@ -44,20 +43,20 @@
     padding: 0 15px;
   }
 
-
   .overlay {
     width: 100%;
     height: 100%;
   }
-  
+
   .modal-form {
     width: 90%;
 
-    input, textarea, select {
+    input,
+    textarea,
+    select {
       width: 100%;
       box-sizing: border-box;
     }
-
   }
 
   .options {
