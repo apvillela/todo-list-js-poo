@@ -17,7 +17,6 @@
 
 .overlay {
   width: 900px;
-  height: 650px;
   background-color: var(--color1);
   z-index: 100;
 
