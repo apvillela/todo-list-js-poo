@@ -18,8 +18,32 @@ O projeto segue o paradigma de **Programação Orientada a Objetos**, utilizando
 
 ## Exemplos de Conceitos na Prática
 
-<!-- TODO Encontrar pelo menos cinco conceitos do paradigma POO estudados em sala devem ser identificados tais como: Polimorfismo, Objetos
-Classes e subclasses
-Classes abstratas
-Métodos
-Propriedades públicas e privadas -->
+**Classes** utilizadas no JavaScript: class Tarefa, class Lista
+
+**Método construtor:**
+
+Método construtor da classe tarefa:
+ ```constructor(titulo, desc, data, hora, prio) {
+    this.#id = ++Tarefa.ultimoId;
+
+    this.titulo = titulo;
+    this.desc = desc;
+    this.data = data;
+    this.hora = hora;
+    this.prio = prio;
+
+    this.concluida = false;
+  }
+  ```
+
+**Polimorfismo:** 
+
+O método *ordenarTarefas* utiliza diferentes critérios de ordenação (como data, título, descrição, prioridade, etc.) dependendo do valor do parâmetro.
+
+**Getters e Setters:**
+
+O código está repleto de getters e setters para que os atributos das classes não consigam ser acessados livremente, apenas pelos métodos, promovendo mais segurança.
+
+**Encapsulamento:**
+
+Na classe tarefa o id é um atributo privado e só pode ser acessado ou modificado pelo método Getter. Encapsulando e protegendo o atributo contra modificações externas indesejadas.
