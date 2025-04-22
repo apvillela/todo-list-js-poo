@@ -68,6 +68,13 @@ class Tarefa {
       const listaSelect = form.listaDestino;
       listaSelect.innerHTML = ""; // limpa opcoes
 
+      const w3cFixPlaceholderOption = document.createElement("option");
+      w3cFixPlaceholderOption.value = "";
+      w3cFixPlaceholderOption.disabled = true;
+      w3cFixPlaceholderOption.selected = true;
+      w3cFixPlaceholderOption.textContent = "Selecione uma lista";
+      listaSelect.appendChild(w3cFixPlaceholderOption);
+
       const listas = JSON.parse(localStorage.getItem("listas"));
 
       listas.forEach((lista) => {

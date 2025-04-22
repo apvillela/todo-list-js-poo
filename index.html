@@ -13,7 +13,9 @@
     <link href="./css/modal.css" rel="stylesheet" />
     <link href="./css/utils.css" rel="stylesheet" />
     <link href="./css/query.css" rel="stylesheet" />
-    <script type="module" src="./js/index.js" defer></script>
+    <!-- w3c - retirei o defer pois o type module ja faz o script ser assincrono - w3c -->
+    <!-- ou deixa type module ou deixa o defer -->
+    <script type="module" src="./js/index.js" ></script>
   </head>
   <body>
     <header>
@@ -110,6 +112,7 @@
           <label>
             Prioridade:
             <select name="prioridade" required>
+              <option value="" disabled selected>Selecione uma Prioridade:</option>
               <option value="normal">Normal</option>
               <option value="importante">Importante</option>
             </select>
@@ -168,6 +171,7 @@
             <label>
               Prioridade:
               <select name="prioridade" required>
+                <option value="" disabled selected>Selecione uma Prioridade:</option>
                 <option value="normal">Normal</option>
                 <option value="importante">Importante</option>
               </select>
@@ -175,7 +179,9 @@
 
             <label>
               Lista:
-              <select name="listaDestino" required></select>
+              <select name="listaDestino" required>
+                <option value="" disabled selected>Selecione uma lista</option>
+              </select>
             </label>
 
             <label>
