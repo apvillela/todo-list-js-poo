@@ -13,8 +13,13 @@ class Estado {
     if (listas) {
       this.listas = JSON.parse(listas).map(Lista.fromJSON);
     } else {
-      fetch("/json/listas.json")
-        .then((res) => res.json())
+      fetch("./json/listas.json")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`Erro ao carregar listas.json! Status: ${res.status}`);
+          }
+          return res.json();
+        })
         .then((dados) => {
           localStorage.setItem("listas", JSON.stringify(dados));
 
